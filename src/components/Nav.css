@@ -15,7 +15,8 @@ header a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.4rem;
-  color: #000;
+  color: #252525;
+  letter-spacing: -1px;
 }
 
 .logo span {
@@ -47,6 +48,8 @@ section {
 
 h1 {
   font-size: 3rem;
+  margin: 1rem 0 2rem;
+  letter-spacing: -2px;
 }
 
 h1 span {

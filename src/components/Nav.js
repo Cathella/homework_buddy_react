@@ -12,17 +12,6 @@ const Nav = (props) => {
           <Link to="/auth/login" className="btn btn-login"><div>Login</div></Link>
         </nav>
       </header>
-      <section>
-        <h1 class="mb-5 fw-bold">
-          Your <span>Buddy </span>
-          while you <span>Study</span>.
-        </h1>
-        <div className="products">
-          <Link to="/quizzes"><div>Quizzes</div></Link>
-          <Link to="/discussions"><div>Discussions</div></Link>
-          <Link to="/quizzes"><div>Lessons</div></Link>
-        </div>
-      </section>
     </>
   )
 }
