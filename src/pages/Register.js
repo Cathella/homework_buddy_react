@@ -26,8 +26,9 @@ const Register = (props) => {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
+        <label>Register at HomeworkBuddy</label>
         <input type="text" placeholder="Username" name="username" value={formData.username} onChange={handleChange} />
         <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleChange} />
         <input type="submit" value="Register" />

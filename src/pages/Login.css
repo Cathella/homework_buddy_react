@@ -1,0 +1,34 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+}
+
+.form-container label {
+  line-height: 2;
+  font-size: 1.3rem;
+  margin-bottom: 1.6rem;
+}
+
+.form-container input {
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+  margin: 0 0 1rem;
+  flex-basis: 100%;
+  }
+
+  .form-container input[type="submit"] {
+    padding: 1.07em 3rem;
+    border-radius: 0.75rem;
+    border: 0;
+    background: blanchedalmond;
+    align-self: self-start;
+    font-size: .9rem;
+  }

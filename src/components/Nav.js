@@ -8,8 +8,8 @@ const Nav = (props) => {
       <header>
         <Link to="/" className="logo">Homework<span>Buddy</span></Link>
         <nav>
-          <Link to="/register"><div>Signup</div></Link>
-          <Link to="/login" className="btn btn-login"><div>Login</div></Link>
+          <Link to="/login"><div>Login</div></Link>
+          <Link to="/register" className="btn btn-login"><div>Signup</div></Link>
         </nav>
       </header>
     </>

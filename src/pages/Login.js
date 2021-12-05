@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppState } from '../AppState';
+import './Login.css';
 
 const Login = (props) => {
   const [formData, setFormData] = React.useState({
@@ -26,8 +27,9 @@ const Login = (props) => {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
+        <label>Login to HomeworkBuddy</label>
         <input type="text" placeholder="Username" name="username" value={formData.username} onChange={handleChange} />
         <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleChange} />
         <input type="submit" value="Login" />
