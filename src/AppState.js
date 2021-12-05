@@ -9,43 +9,22 @@ const initialState = {
 
 // Reducer
 const reducer = (state, action) => {
+  let newState;
+
   switch (action.type) {
     case 'register':
-      fetch(state.url + '/users/', {
-        method: 'POST',
-        headers: {
-          "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(action.payload)
-      })
-      .then(response => response.json())
-      .then(user => {
-        return {
-          ...state,
-          token: user.token,
-          username: user.username
-        }
-      })
-      break
+      newState = { ...state, ...action.payload };
+      return newState;
+      break;
+
     case 'login':
-      fetch(state.url + '/login/', {
-        method: 'POST',
-        headers: {
-          "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(action.payload)
-      })
-      .then(response => response.json())
-      .then(user => {
-        return {
-          ...state,
-          token: user.token,
-          username: user.username
-        }
-      })
-      break
+      newState = { ...state, ...action.payload };
+      return newState;
+      break;
+  
     default:
-      return state
+      return state;
+      break;
   }
 }
 

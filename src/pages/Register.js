@@ -7,12 +7,26 @@ const Register = (props) => {
     password: ""
   });
 
-  const { dispatch } = useAppState();
+  const [ userData, setUserData] = React.useState(null);
+  const { state, dispatch } = useAppState();
+  console.log(state);
+
+  React.useEffect(() => {
+    if (userData) {
+      console.log(userData);
+      dispatch({ type: 'register', payload: { token, username: userData.username }});
+    }
+  }, [userData]);
 
   const actions = {
-    register: {
-      type: 'register',
-      payload: formData
+    register: () => {
+      return fetch(state.url + '/users', {
+        method: 'POST',
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(formData),
+      }).then((response) => response.json());
     },
   }
 
@@ -22,8 +36,10 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actions.register);
-  }
+    actions[type]().then((data) => {
+      setUserData(data);
+    });
+  };
 
   return (
     <div className="form-container">

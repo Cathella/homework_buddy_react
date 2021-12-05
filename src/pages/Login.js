@@ -8,12 +8,26 @@ const Login = (props) => {
     password: ""
   });
 
-  const { dispatch } = useAppState();
+  const [ userData, setUserData] = React.useState(null);
+  const { state, dispatch } = useAppState();
+  console.log(state);
+
+  React.useEffect(() => {
+    if (userData) {
+      console.log(userData);
+      dispatch({ type: 'login', payload: { token, username: userData.username }});
+    }
+  }, [userData]);
 
   const actions = {
-    login: {
-      type: 'login',
-      payload: formData
+    login: () => {
+      return fetch(state.url + '/login', {
+        method: 'POST',
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(formData),
+      }).then((response) => response.json());
     },
   }
 
@@ -23,8 +37,10 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actions.login);
-  }
+    actions[type]().then((data) => {
+      setUserData(data);
+    });
+  };
 
   return (
     <div className="form-container">
