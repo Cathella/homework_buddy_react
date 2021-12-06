@@ -15,7 +15,8 @@ const Login = (props) => {
   React.useEffect(() => {
     if (userData) {
       console.log(userData);
-      dispatch({ type: 'login', payload: { token, username: userData.username }});
+      const { token, user } = userData;
+      dispatch({ type: 'login', payload: { token, username: user.username }});
     }
   }, [userData]);
 
@@ -37,7 +38,7 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    actions[type]().then((data) => {
+    actions.login().then((data) => {
       setUserData(data);
     });
   };

@@ -14,7 +14,8 @@ const Register = (props) => {
   React.useEffect(() => {
     if (userData) {
       console.log(userData);
-      dispatch({ type: 'register', payload: { token, username: userData.username }});
+      const { token, user } = userData;
+      dispatch({ type: 'register', payload: { token, username: user.username }});
     }
   }, [userData]);
 
@@ -36,7 +37,7 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    actions[type]().then((data) => {
+    actions.register().then((data) => {
       setUserData(data);
     });
   };
