@@ -17,11 +17,12 @@
 }
 
 .form-container input {
-  padding: 1rem 1rem;
+  padding: 0.85rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid #ddd;
   margin: 0 0 1rem;
   flex-basis: 100%;
+  font-size: 1em;
   }
 
   .form-container input[type="submit"] {

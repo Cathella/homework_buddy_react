@@ -15,16 +15,11 @@ const reducer = (state, action) => {
     case 'register':
       newState = { ...state, ...action.payload };
       return newState;
-      break;
-
     case 'login':
       newState = { ...state, ...action.payload };
       return newState;
-      break;
-  
     default:
       return state;
-      break;
   }
 }
 

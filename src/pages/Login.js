@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAppState } from '../AppState';
 import './Login.css';
 
 const Login = (props) => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     username: "",
     password: ""
   });
 
-  const [ userData, setUserData] = React.useState(null);
+  const [ userData, setUserData] = useState(null);
   const { state, dispatch } = useAppState();
   console.log(state);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (userData) {
       console.log(userData);
       const { token, user } = userData;
       dispatch({ type: 'login', payload: { token, username: user.username }});
+      window.localStorage.setItem('auth', JSON.stringify({ token, username: user.username }))
+      props.history.push('/dashboard')
     }
   }, [userData]);
 
